@@ -1,0 +1,22 @@
+// https://turingmachinesimulator.com/
+name: binary_add_two_lsb_mover
+init: mover
+accept: done
+
+mover,0
+carry,0,>
+
+mover,1
+carry,1,>
+
+mover,_
+carry,0,>
+
+carry,1
+carry,0,>
+
+carry,0
+done,1,>
+
+carry,_
+done,1,>

@@ -1,0 +1,50 @@
+// https://turingmachinesimulator.com/
+//-------CONFIGURATION
+name: power_of_two
+init: q1
+accept: qacc
+
+//-------DELTA FUNCTION:
+// q1: keep the first 0
+q1,0
+q2,0,>
+
+// q2: odd number of 0s so far
+q2,#
+q2,#,>
+
+q2,0
+q3,#,>
+
+q2,_
+qacc,_,>
+
+// q3: even number of 0s so far
+q3,#
+q3,#,>
+
+q3,0
+q4,0,>
+
+q3,_
+q5,_,<
+
+// q4: odd number of 0s so far (more than one)
+q4,#
+q4,#,>
+
+q4,0
+q3,#,>
+
+q4,_
+qrej,_,>
+
+// q5: go back to the leftmost
+q5,0
+q5,0,<
+
+q5,#
+q5,#,<
+
+q5,_
+q1,_,>

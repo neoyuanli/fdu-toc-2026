@@ -1,0 +1,13 @@
+// https://turingmachinesimulator.com/
+name: binary add 1, LSB first
+init: q0
+accept: q_end
+
+q0,1
+q0,0,>
+
+q0,0
+q_end,1,-
+
+q0,_
+q_end,1,-

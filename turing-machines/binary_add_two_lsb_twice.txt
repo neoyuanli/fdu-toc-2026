@@ -1,0 +1,31 @@
+// https://turingmachinesimulator.com/
+name: binary_add_two_lsb
+init: carry1
+accept: done2
+
+carry1,1
+carry1,0,>
+
+carry1,0
+done1,1,<
+
+carry1,_
+done1,1,<
+
+done1,0
+done1,0,<
+
+done1,1
+done1,1,<
+
+done1,_
+carry2,_,>
+
+carry2,1
+carry2,0,>
+
+carry2,0
+done2,1,>
+
+carry2,_
+done2,1,>

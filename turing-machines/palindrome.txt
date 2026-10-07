@@ -1,0 +1,94 @@
+// https://turingmachinesimulator.com/
+//-------CONFIGURATION
+name: palindrome
+init: q0
+accept: acc
+
+//-------DELTA FUNCTION:
+// q0: at the left end, read and erase the leftmost symbol
+q0,0
+R0,_,>
+
+q0,1
+R1,_,>
+
+q0,_
+acc,_,>
+
+// R0: memorized 0, move right to the end
+R0,0
+R0,0,>
+
+R0,1
+R0,1,>
+
+R0,_
+S0L,_,<
+
+// S0L: check that the rightmost symbol is 0
+S0L,0
+q1,_,<
+
+S0L,_
+acc,_,>
+
+// R1: memorized 1, move right to the end
+R1,0
+R1,0,>
+
+R1,1
+R1,1,>
+
+R1,_
+S1L,_,<
+
+// S1L: check that the rightmost symbol is 1
+S1L,1
+q1,_,<
+
+S1L,_
+acc,_,>
+
+// q1: at the right end, read and erase the rightmost symbol
+q1,0
+L0,_,<
+
+q1,1
+L1,_,<
+
+q1,_
+acc,_,>
+
+// L0: memorized 0, move left to the start
+L0,0
+L0,0,<
+
+L0,1
+L0,1,<
+
+L0,_
+S0R,_,>
+
+// S0R: check that the leftmost symbol is 0
+S0R,0
+q0,_,>
+
+S0R,_
+acc,_,>
+
+// L1: memorized 1, move left to the start
+L1,0
+L1,0,<
+
+L1,1
+L1,1,<
+
+L1,_
+S1R,_,>
+
+// S1R: check that the leftmost symbol is 1
+S1R,1
+q0,_,>
+
+S1R,_
+acc,_,>
